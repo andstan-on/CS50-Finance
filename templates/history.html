@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for item in userHistory %}
+            <tr>
+                <td class="text-start">{{ item["action"] }}</td>
+                <td class="text-start">{{ item["symbol"] }}</td>
+                <td class="text-end">{{ item["shares"] }}</td>
+                <td class="text-end">{{ item["price"] }}</td>
+                <td class="text-end">{{ item["total_price"] }}</td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

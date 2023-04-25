@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Action</th>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+        {% for stock in  stockInfo %}
+            <tr>
+                <td class="text-start">{{ stock["symbol"] }}</td>
+                <td class="text-start">{{ stock["name"] }}</td>
+                <td class="text-end">{{ stock["shares"] }}</td>
+                <td class="text-end">{{ stock["price"] }}</td>
+                <td class="text-end">{{ stock["total"] }}</td>
+            </tr>
+        {% endfor %}
+        <tfoot>
+            <tr>
+              <th class="border-0 fw-bold text-end" >Cash</th>
+              <td class="border-0 text-end">{{ userCash }}</td>
+            </tr>
+            <tr>
+                <th class="border-0 fw-bold text-end">Total</th>
+                <td class="border-0 text-end">{{ superTotal }}</td>
+              </tr>
+        </tfoot>
+    </tbody>
+</table>
+
+{% endblock %}
